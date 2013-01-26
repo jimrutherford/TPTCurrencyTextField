@@ -13,7 +13,6 @@
 
 //data formats
 +(NSNumberFormatter*) currencyFormatter;
-+(NSNumberFormatter*) currencyFormatterWithTwoDecimals;
 +(NSNumberFormatter*) currencyFormatterWithNoFraction;
 +(NSNumberFormatter*) percentFormatter;
 +(NSNumberFormatter*) basicFormatter;

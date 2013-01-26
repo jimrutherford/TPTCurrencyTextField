@@ -19,6 +19,7 @@
 		374FB6B516B3401A002F25D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 374FB6B416B3401A002F25D5 /* ViewController.m */; };
 		374FB6B816B3401A002F25D5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 374FB6B616B3401A002F25D5 /* ViewController.xib */; };
 		374FB6C316B345A4002F25D5 /* Formatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 374FB6C216B344FD002F25D5 /* Formatters.m */; };
+		37F780FB16B4808F00EBA711 /* TPTCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		374FB6B716B3401A002F25D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		374FB6C116B344FD002F25D5 /* Formatters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formatters.h; sourceTree = "<group>"; };
 		374FB6C216B344FD002F25D5 /* Formatters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Formatters.m; sourceTree = "<group>"; };
+		37F780F916B4808F00EBA711 /* TPTCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTCurrencyTextField.h; path = Classes/TPTCurrencyTextField.h; sourceTree = "<group>"; };
+		37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTCurrencyTextField.m; path = Classes/TPTCurrencyTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				374FB6C116B344FD002F25D5 /* Formatters.h */,
 				374FB6C216B344FD002F25D5 /* Formatters.m */,
+				37F780F916B4808F00EBA711 /* TPTCurrencyTextField.h */,
+				37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				374FB6AC16B3401A002F25D5 /* AppDelegate.m in Sources */,
 				374FB6B516B3401A002F25D5 /* ViewController.m in Sources */,
 				374FB6C316B345A4002F25D5 /* Formatters.m in Sources */,
+				37F780FB16B4808F00EBA711 /* TPTCurrencyTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +327,7 @@
 				374FB6BD16B3401A002F25D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

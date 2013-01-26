@@ -22,6 +22,7 @@ NSNumberFormatter* basicFormatter;
 
 NSCharacterSet *nonNumberSet;
 NSString *localCurrencySymbol;
+NSString *localDecimalSeparator;
 NSString *localGroupingSeparator;
 
 - (void)viewDidLoad
@@ -33,8 +34,9 @@ NSString *localGroupingSeparator;
 	NSLocale* locale = [NSLocale currentLocale];
 	localCurrencySymbol = [locale objectForKey:NSLocaleCurrencySymbol];
 	localGroupingSeparator = [locale objectForKey:NSLocaleGroupingSeparator];
+	localDecimalSeparator = [locale objectForKey:NSLocaleDecimalSeparator];
 	
-	currencyFormatter = [Formatters currencyFormatterWithTwoDecimals];
+	currencyFormatter = [Formatters currencyFormatter];
 	basicFormatter = [Formatters basicFormatter];
 	
 	//set up the reject character set
@@ -50,9 +52,6 @@ NSString *localGroupingSeparator;
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 	BOOL result = NO; //default to reject
-
-	
-	NSLog(@"range.location - %i   replacementString - %@", range.location, string);
 	
 	if([string length] == 0)
 	{
@@ -69,27 +68,28 @@ NSString *localGroupingSeparator;
 	//here we deal with the UITextField on our own
 	if(result){
 		//grab a mutable copy of what's currently in the UITextField
-		NSMutableString* mstring = [[textField text] mutableCopy];
+		NSMutableString* inputCopy = [[textField text] mutableCopy];
 		
         //adding a char or deleting?
         if([string length] > 0){
-            [mstring insertString:string atIndex:range.location];
+            [inputCopy insertString:string atIndex:range.location];
         }
         else {
             //delete case - the length of replacement string is zero for a delete
-            [mstring deleteCharactersInRange:range];
+            [inputCopy deleteCharactersInRange:range];
         }
 		
-        //remove any possible symbols so the formatter will work
-        NSString* clean_string = [[[mstring stringByReplacingOccurrencesOfString:localGroupingSeparator
-                                                                     withString:@""]
-								  stringByReplacingOccurrencesOfString:localCurrencySymbol
-								  withString:@""] stringByReplacingOccurrencesOfString:@"."
-	withString:@""];
-		
-        //clean up mstring since it's no longer needed
-		
-        NSNumber* number = [basicFormatter numberFromString: clean_string];
+        //sanitize the input to remove any non-numeric symbols so the formatter will work
+		NSString *sanitizedInput;
+		sanitizedInput = [inputCopy stringByReplacingOccurrencesOfString:localGroupingSeparator
+										   withString:@""];
+		sanitizedInput = [sanitizedInput stringByReplacingOccurrencesOfString:localCurrencySymbol
+										   withString:@""];
+		sanitizedInput = [sanitizedInput stringByReplacingOccurrencesOfString:localDecimalSeparator
+								  withString:@""];
+
+        double currencyValue = [[basicFormatter numberFromString:sanitizedInput] doubleValue] / 100.0;
+		NSNumber* number = [NSNumber numberWithDouble:currencyValue];
 		
 		//now format the number back to the proper currency string
 		//and get the grouping separators added in and put it in the UITextField

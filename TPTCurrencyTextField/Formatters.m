@@ -21,15 +21,6 @@
 	return currencyFormatter;
 }
 
-+(NSNumberFormatter*) currencyFormatterWithTwoDecimals{
-	NSNumberFormatter* currencyFormatter = [[NSNumberFormatter alloc] init];
-	[currencyFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-	[currencyFormatter setLocale:[NSLocale currentLocale]];
-	[currencyFormatter setMaximumFractionDigits:2];
-	[currencyFormatter setMinimumFractionDigits:2];
-	return currencyFormatter;
-}
 
 +(NSNumberFormatter*) currencyFormatterWithNoFraction{
 	NSNumberFormatter* currencyFormatter = [[NSNumberFormatter alloc] init];
