@@ -28,7 +28,7 @@
 	textInputField.font = [UIFont fontWithName:@"Helvetica" size:25.0f];
 	textInputField.delegate = self;
 	[self.view addSubview:textInputField];
-	
+	[textInputField setNumericValue:[NSNumber numberWithDouble:0.0]];
 	
 }
 
@@ -44,5 +44,9 @@
 
 - (IBAction)logNumericValue:(UIButton *)sender {
 	NSLog(@"Numeric Value - %f", [textInputField.numericValue doubleValue]);
+}
+
+- (IBAction)logCurrencyText:(UIButton *)sender {
+	NSLog(@"Currency Text - %@", textInputField.text);
 }
 @end

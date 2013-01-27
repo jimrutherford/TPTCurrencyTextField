@@ -15,5 +15,6 @@
 
 - (IBAction)setWithNumber:(UIButton *)sender;
 - (IBAction)logNumericValue:(UIButton *)sender;
+- (IBAction)logCurrencyText:(UIButton *)sender;
 
 @end
