@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPTCurrencyTextField : UITextField
+@interface TPTCurrencyTextField : UITextField <UITextFieldDelegate>
+
+
+-(BOOL)currencyTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+
+-(void)currencyTextFieldDidBeginEditing:(UITextField *)textField;
 
 @end

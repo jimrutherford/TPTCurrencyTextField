@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPTCurrencyTextField.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *textInputField;
+@property (strong, nonatomic) TPTCurrencyTextField *textInputField;
 
 
 @end

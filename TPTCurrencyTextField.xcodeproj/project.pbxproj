@@ -18,8 +18,8 @@
 		374FB6B216B3401A002F25D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 374FB6B116B3401A002F25D5 /* Default-568h@2x.png */; };
 		374FB6B516B3401A002F25D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 374FB6B416B3401A002F25D5 /* ViewController.m */; };
 		374FB6B816B3401A002F25D5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 374FB6B616B3401A002F25D5 /* ViewController.xib */; };
-		374FB6C316B345A4002F25D5 /* Formatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 374FB6C216B344FD002F25D5 /* Formatters.m */; };
 		37F780FB16B4808F00EBA711 /* TPTCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */; };
+		37F7810316B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F7810216B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,10 +39,10 @@
 		374FB6B316B3401A002F25D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		374FB6B416B3401A002F25D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		374FB6B716B3401A002F25D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		374FB6C116B344FD002F25D5 /* Formatters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formatters.h; sourceTree = "<group>"; };
-		374FB6C216B344FD002F25D5 /* Formatters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Formatters.m; sourceTree = "<group>"; };
 		37F780F916B4808F00EBA711 /* TPTCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTCurrencyTextField.h; path = Classes/TPTCurrencyTextField.h; sourceTree = "<group>"; };
 		37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTCurrencyTextField.m; path = Classes/TPTCurrencyTextField.m; sourceTree = "<group>"; };
+		37F7810116B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTCurrencyTextFieldPrivateDelegate.h; path = Classes/TPTCurrencyTextFieldPrivateDelegate.h; sourceTree = "<group>"; };
+		37F7810216B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTCurrencyTextFieldPrivateDelegate.m; path = Classes/TPTCurrencyTextFieldPrivateDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +118,10 @@
 		374FB6BE16B3409C002F25D5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				374FB6C116B344FD002F25D5 /* Formatters.h */,
-				374FB6C216B344FD002F25D5 /* Formatters.m */,
 				37F780F916B4808F00EBA711 /* TPTCurrencyTextField.h */,
 				37F780FA16B4808F00EBA711 /* TPTCurrencyTextField.m */,
+				37F7810116B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.h */,
+				37F7810216B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -210,8 +210,8 @@
 				374FB6A816B3401A002F25D5 /* main.m in Sources */,
 				374FB6AC16B3401A002F25D5 /* AppDelegate.m in Sources */,
 				374FB6B516B3401A002F25D5 /* ViewController.m in Sources */,
-				374FB6C316B345A4002F25D5 /* Formatters.m in Sources */,
 				37F780FB16B4808F00EBA711 /* TPTCurrencyTextField.m in Sources */,
+				37F7810316B4A4E700EBA711 /* TPTCurrencyTextFieldPrivateDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
