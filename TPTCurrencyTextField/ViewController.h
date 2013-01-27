@@ -13,5 +13,7 @@
 
 @property (strong, nonatomic) TPTCurrencyTextField *textInputField;
 
+- (IBAction)setWithNumber:(UIButton *)sender;
+- (IBAction)logNumericValue:(UIButton *)sender;
 
 @end

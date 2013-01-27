@@ -13,6 +13,7 @@
     TPTCurrencyTextFieldPrivateDelegate *_myDelegate;
 }
 
+@synthesize numericValue;
 
 NSNumberFormatter* currencyFormatter;
 NSNumberFormatter* basicFormatter;
@@ -34,6 +35,8 @@ NSString *localGroupingSeparator;
 
 -(void) setup
 {
+	self.keyboardType = UIKeyboardTypeDecimalPad;
+	
 	NSLocale* locale = [NSLocale currentLocale];
 	localCurrencySymbol = [locale objectForKey:NSLocaleCurrencySymbol];
 	localGroupingSeparator = [locale objectForKey:NSLocaleGroupingSeparator];
@@ -88,13 +91,7 @@ NSString *localGroupingSeparator;
         }
 		
         //sanitize the input to remove any non-numeric symbols so the formatter will work
-		NSString *sanitizedInput;
-		sanitizedInput = [inputCopy stringByReplacingOccurrencesOfString:localGroupingSeparator
-															  withString:@""];
-		sanitizedInput = [sanitizedInput stringByReplacingOccurrencesOfString:localCurrencySymbol
-																   withString:@""];
-		sanitizedInput = [sanitizedInput stringByReplacingOccurrencesOfString:localDecimalSeparator
-																   withString:@""];
+		NSString *sanitizedInput = [self sanitizedStringFromTextField:inputCopy];
 		
         double currencyValue = [[basicFormatter numberFromString:sanitizedInput] doubleValue] / 100.0;
 		NSNumber* number = [NSNumber numberWithDouble:currencyValue];
@@ -109,6 +106,18 @@ NSString *localGroupingSeparator;
 }
 
 
+- (NSString*) sanitizedStringFromTextField:(NSString*)input
+{
+	NSString *sanitizedString;
+	sanitizedString = [input stringByReplacingOccurrencesOfString:localGroupingSeparator
+														  withString:@""];
+	sanitizedString = [sanitizedString stringByReplacingOccurrencesOfString:localCurrencySymbol
+															   withString:@""];
+	sanitizedString = [sanitizedString stringByReplacingOccurrencesOfString:localDecimalSeparator
+															   withString:@""];
+	return sanitizedString;
+}
+
 #pragma mark - Control Initialization
 
 - (void)initDelegate {
@@ -119,6 +128,20 @@ NSString *localGroupingSeparator;
 
 
 #pragma mark - Getters/Setters
+
+- (void)setNumericValue:(NSNumber *)aNumericValue
+{
+	[self setText:[currencyFormatter stringFromNumber:aNumericValue]];
+}
+
+- (NSNumber*	) numericValue
+{
+	NSString *sanitizedInput = [self sanitizedStringFromTextField:self.text];
+	
+	double currencyValue = [[basicFormatter numberFromString:sanitizedInput] doubleValue] / 100.0;
+	return [NSNumber numberWithDouble:currencyValue];
+
+}
 
 - (void)setDelegate:(id<UITextFieldDelegate>)delegate {
     _myDelegate->_userDelegate = delegate;

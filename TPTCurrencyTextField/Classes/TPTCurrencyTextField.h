@@ -11,6 +11,8 @@
 @interface TPTCurrencyTextField : UITextField <UITextFieldDelegate>
 
 
+@property (nonatomic, strong) NSNumber *numericValue;
+
 -(BOOL)currencyTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 -(void)currencyTextFieldDidBeginEditing:(UITextField *)textField;

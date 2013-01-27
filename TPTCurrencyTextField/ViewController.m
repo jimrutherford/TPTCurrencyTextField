@@ -24,7 +24,8 @@
     [super viewDidLoad];
 	
 	textInputField = [[TPTCurrencyTextField alloc] initWithFrame:CGRectMake(20, 20, 280, 40)];
-	
+	textInputField.borderStyle = UITextBorderStyleRoundedRect;
+	textInputField.font = [UIFont fontWithName:@"Helvetica" size:25.0f];
 	textInputField.delegate = self;
 	[self.view addSubview:textInputField];
 	
@@ -37,4 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)setWithNumber:(UIButton *)sender {
+	[textInputField setNumericValue:[NSNumber numberWithDouble:20.99]];
+}
+
+- (IBAction)logNumericValue:(UIButton *)sender {
+	NSLog(@"Numeric Value - %f", [textInputField.numericValue doubleValue]);
+}
 @end
